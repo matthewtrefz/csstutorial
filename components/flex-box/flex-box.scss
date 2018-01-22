@@ -1,0 +1,21 @@
+@import "../../app/app-variables";
+@import "../../app/app-mixins.scss";
+
+.column {
+	flex-direction: column;
+}
+
+.row {
+	flex-direction: row;
+}
+
+.flex-container {
+	display: flex;
+}
+
+.flex-item {
+	background-color: lime;
+	margin: 0.25rem;
+	height: 5rem;
+	width: 5rem;
+}
