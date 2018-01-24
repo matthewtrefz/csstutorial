@@ -1,20 +1,55 @@
 @import "../../app/app-variables";
 @import "../../app/app-mixins.scss";
 
-.column {
-	flex-direction: column;
-}
-
-.row {
-	flex-direction: row;
-}
-
 .flex-container {
 	display: flex;
+
+	&.column {
+		flex-direction: column;
+	}
+
+	&.row {
+		flex-direction: row;
+	}
+
+	&.align-flex-start {
+		 align-items: flex-start;
+	 }
+	&.align-flex-end {
+		align-items: flex-end;
+	}
+	&.align-center {
+		align-items: center;
+	}
+	&.align-baseline {
+		align-items: baseline;
+	}
+	&.align-stretch {
+		align-items: stretch;
+	}
+
+	&.justify-flex-start {
+		justify-content: flex-start;
+	}
+	&.justify-flex-end {
+		justify-content: flex-end;
+	}
+	&.justify-center {
+		justify-content: center;
+	}
+	&.justify-space-between {
+		justify-content: space-between;
+	}
+	&.justify-space-around {
+		justify-content: space-around;
+	}
+	&.justify-space-evenly {
+		justify-content: space-evenly;
+	}
 }
 
 .flex-item {
-	background-color: lime;
+	background-color: pink;
 	margin: 0.25rem;
 	height: 5rem;
 	width: 5rem;

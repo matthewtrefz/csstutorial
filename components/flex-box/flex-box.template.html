@@ -8,10 +8,39 @@
 		<p>
 			Flex box works in one direction at a time horizontal or vertical.
 		</p>
+		<div class="element" data-ng-repeat="value in flexBoxVm.flexBoxPropertyList.direction">
+			<label for="flex-direction-{{value}}">
+				<input type="radio" data-ng-model="flexBoxVm.demoControl.direction" ng-value="value" name="flex-direction" id="flex-direction-{{value}}" /> {{value}}
+			</label>
+		</div>
+
+		<div class="element">
+			<label for="align-items">align-items</label>
+			<select
+				data-ng-model="flexBoxVm.demoControl.alignItems"
+				data-ng-options="value for value in flexBoxVm.flexBoxPropertyList.alignItems"
+				id="align-items"
+			></select>
+		</div>
+
+		<div class="element">
+			<label for="justify-content">justify-content</label>
+			<select
+				data-ng-model="flexBoxVm.demoControl.justifyContent"
+				data-ng-options="value for value in flexBoxVm.flexBoxPropertyList.justifyContent"
+				id="justify-content"
+			></select>
+		</div>
 	</section>
 	</div>
 	<div class="demo-area">
-		<div class="container flex-container">
+		<div class="container flex-container"
+			data-ng-class="[
+				'align-' + flexBoxVm.demoControl.alignItems,
+				flexBoxVm.demoControl.direction,
+				'justify-' + flexBoxVm.demoControl.justifyContent,
+				flexBoxVm.demoControl.wrap
+			]">
 			<div class="flex-item" data-ng-repeat="item in flexBoxVm.itemList"></div>
 		</div>
 	</div>

@@ -7,8 +7,8 @@
   border: 1px solid #cccccc;
   padding: 0.5rem;
   margin: 0 auto;
-  max-height: 80%;
-  max-width: 80%; }
+  height: 80%;
+  width: 80%; }
 
 .content-area {
   background-color: white;
@@ -30,17 +30,37 @@
   .tutorial > .header {
     grid-area: header; }
 
-.column {
-  flex-direction: column; }
-
-.row {
-  flex-direction: row; }
-
 .flex-container {
   display: flex; }
+  .flex-container.column {
+    flex-direction: column; }
+  .flex-container.row {
+    flex-direction: row; }
+  .flex-container.align-flex-start {
+    align-items: flex-start; }
+  .flex-container.align-flex-end {
+    align-items: flex-end; }
+  .flex-container.align-center {
+    align-items: center; }
+  .flex-container.align-baseline {
+    align-items: baseline; }
+  .flex-container.align-stretch {
+    align-items: stretch; }
+  .flex-container.justify-flex-start {
+    justify-content: flex-start; }
+  .flex-container.justify-flex-end {
+    justify-content: flex-end; }
+  .flex-container.justify-center {
+    justify-content: center; }
+  .flex-container.justify-space-between {
+    justify-content: space-between; }
+  .flex-container.justify-space-around {
+    justify-content: space-around; }
+  .flex-container.justify-space-evenly {
+    justify-content: space-evenly; }
 
 .flex-item {
-  background-color: lime;
+  background-color: pink;
   margin: 0.25rem;
   height: 5rem;
   width: 5rem; }

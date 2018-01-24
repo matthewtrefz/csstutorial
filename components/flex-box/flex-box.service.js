@@ -8,8 +8,44 @@ FlexBoxService.$inject = [];
 
 function FlexBoxService() {
 	return {
-		getFlexItemList: getFlexItemList
+		createFlexItem: createFlexItem,
+		flexPropertyValueList: flexPropertyValueList,
+		getFlexItemList: getFlexItemList,
+		setFlexParameter: setFlexParameter
 	};
+
+	function createFlexItem() {
+		var item = {
+			color: null,
+			height: null,
+			width: null
+		};
+		return item;
+	}
+
+	function flexPropertyValueList() {
+		var list = {
+			alignItems: [
+				'flex-start',
+				'flex-end',
+				'center',
+				'baseline',
+				'stretch'
+			],
+			direction: ['column', 'row'],
+			justifyContent: [
+				'flex-start',
+				'flex-end',
+				'center',
+				'space-between',
+				'space-around',
+				'space-evenly'
+			],
+			wrap: ['wrap', 'nowrap']
+		};
+
+		return list;
+	}
 
 	function getFlexItemList(requestedCount) {
 		var itemList = [];
@@ -21,12 +57,7 @@ function FlexBoxService() {
 		return itemList;
 	}
 
-	function createFlexItem() {
-		var item = {
-			color: null,
-			height: null,
-			width: null
-		};
-		return item;
+	function setFlexParameter(target, parameterName, parameterValue) {
+		target[parameterName] = parameterValue;
 	}
 }
