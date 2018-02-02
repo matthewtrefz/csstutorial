@@ -12,6 +12,14 @@
 		flex-direction: row;
 	}
 
+	&.wrap {
+		flex-wrap: wrap;
+	}
+
+	&.nowrap {
+		flex-wrap: nowrap;
+	}
+
 	&.align-flex-start {
 		 align-items: flex-start;
 	 }
@@ -26,6 +34,22 @@
 	}
 	&.align-stretch {
 		align-items: stretch;
+	}
+
+	&.align-content-flex-start {
+		align-content: flex-start;
+	}
+	&.align-content-flex-end {
+		align-content: flex-end;
+	}
+	&.align-content-center {
+		align-content: center;
+	}
+	&.align-content-baseline {
+		align-content: baseline;
+	}
+	&.align-content-stretch {
+		align-content: stretch;
 	}
 
 	&.justify-flex-start {
@@ -49,8 +73,49 @@
 }
 
 .flex-item {
+	align-items: center;
 	background-color: pink;
+	display: flex;
 	margin: 0.25rem;
-	height: 5rem;
-	width: 5rem;
+	justify-content: center;
+	padding: 2em 2.5em;
+
+	&.align-self-flex-start {
+		align-self: flex-start;
+	}
+	&.align-self-flex-end {
+		align-self: flex-end;
+	}
+	&.align-self-center {
+		align-self: center;
+	}
+	&.align-self-baseline {
+		align-self: baseline;
+	}
+	&.align-self-stretch {
+		align-self: stretch;
+	}
+
+	.index {
+		font-size: 2em;
+	}
+}
+
+.element {
+	display:flex;
+	flex-flow: column;
+}
+
+.item-list-controls {
+	box-sizing: border-box;
+	display: flex;
+	flex-flow: row wrap;
+	list-style: none;
+	padding:0.5rem;
+
+	.control {
+		box-sizing: border-box;
+		margin: 0.25rem;
+		padding: 0.5rem;
+	}
 }

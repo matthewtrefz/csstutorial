@@ -3,45 +3,92 @@
 		<h1>Flex Box Tutorial</h1>
 	</header>
 	<div class="content-area">
-	<section>
-		<h2>Basics</h2>
-		<p>
-			Flex box works in one direction at a time horizontal or vertical.
-		</p>
-		<div class="element" data-ng-repeat="value in flexBoxVm.flexBoxPropertyList.direction">
-			<label for="flex-direction-{{value}}">
-				<input type="radio" data-ng-model="flexBoxVm.demoControl.direction" ng-value="value" name="flex-direction" id="flex-direction-{{value}}" /> {{value}}
-			</label>
-		</div>
+		<section>
+			<h2>Basics</h2>
+			<p>
+				Flex box works in one direction at a time horizontal or vertical.
+			</p>
+			<form>
+				<div class="element" data-ng-repeat="value in flexBoxVm.flexBoxPropertyList.direction">
+					<label for="flex-direction-{{value}}">
+						<input type="radio" data-ng-model="flexBoxVm.demoControl.direction" ng-value="value" name="flex-direction" id="flex-direction-{{value}}"/> {{value}}
+					</label>
+				</div>
 
-		<div class="element">
-			<label for="align-items">align-items</label>
-			<select
-				data-ng-model="flexBoxVm.demoControl.alignItems"
-				data-ng-options="value for value in flexBoxVm.flexBoxPropertyList.alignItems"
-				id="align-items"
-			></select>
-		</div>
+				<div class="element" data-ng-repeat="value in flexBoxVm.flexBoxPropertyList.wrap">
+					<label for="flex-wrap-{{value}}">
+						<input type="radio" data-ng-model="flexBoxVm.demoControl.wrap" ng-value="value" name="flex-wrap" id="flex-wrap-{{value}}"/> {{value}}
+					</label>
+				</div>
 
-		<div class="element">
-			<label for="justify-content">justify-content</label>
-			<select
-				data-ng-model="flexBoxVm.demoControl.justifyContent"
-				data-ng-options="value for value in flexBoxVm.flexBoxPropertyList.justifyContent"
-				id="justify-content"
-			></select>
-		</div>
-	</section>
+				<div class="element">
+					<label for="align-items">align-items</label>
+					<select
+						data-ng-model="flexBoxVm.demoControl.alignItems"
+						data-ng-options="value for value in flexBoxVm.flexBoxPropertyList.alignItems"
+						id="align-items"
+					></select>
+				</div>
+
+				<div class="element">
+					<label for="justify-content">justify-content</label>
+					<select
+						data-ng-model="flexBoxVm.demoControl.justifyContent"
+						data-ng-options="value for value in flexBoxVm.flexBoxPropertyList.justifyContent"
+						id="justify-content"
+					></select>
+				</div>
+
+				<div class="element">
+					<label for="align-content">align-content</label>
+					<select
+						data-ng-model="flexBoxVm.demoControl.alignContent"
+						data-ng-options="value for value in flexBoxVm.flexBoxPropertyList.alignContent"
+						id="align-content"
+					></select>
+				</div>
+			</form>
+			<ul class="item-list-controls">
+				<li data-ng-repeat="item in flexBoxVm.itemList"
+					class="control">
+					<strong>Item {{item.label}}</strong>
+					<div class="element">
+						<label for="align-self">align-self</label>
+						<select
+							data-ng-model="item.alignSelf"
+							data-ng-options="value for value in flexBoxVm.flexBoxPropertyList.alignItems"
+							id="align-self"
+						></select>
+					</div>
+					<div class="element">
+						<label for="item-order">order</label>
+						<select
+							data-ng-model="item.order"
+							data-ng-options="value for value in flexBoxVm.itemOrderList"
+							id="item-order"
+						></select>
+					</div>
+				</li>
+			</ul>
+		</section>
 	</div>
 	<div class="demo-area">
 		<div class="container flex-container"
-			data-ng-class="[
+		     data-ng-class="[
 				'align-' + flexBoxVm.demoControl.alignItems,
+				'align-content-' + flexBoxVm.demoControl.alignContent,
 				flexBoxVm.demoControl.direction,
 				'justify-' + flexBoxVm.demoControl.justifyContent,
 				flexBoxVm.demoControl.wrap
 			]">
-			<div class="flex-item" data-ng-repeat="item in flexBoxVm.itemList"></div>
+			<div data-ng-repeat="item in flexBoxVm.itemList"
+			     data-ng-class="[
+			        'align-self-' + item.alignSelf
+			     ]"
+			     data-ng-style="{'order':item.order}"
+			     class="flex-item">
+				<div class="index">{{item.label}}</div>
+			</div>
 		</div>
 	</div>
 </article>

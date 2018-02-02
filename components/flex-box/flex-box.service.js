@@ -7,12 +7,26 @@ angular
 FlexBoxService.$inject = [];
 
 function FlexBoxService() {
+	var labelList = createLabelList();
+
 	return {
 		createFlexItem: createFlexItem,
 		flexPropertyValueList: flexPropertyValueList,
 		getFlexItemList: getFlexItemList,
 		setFlexParameter: setFlexParameter
 	};
+
+	function createLabelList(){
+		var list = [];
+		for (var i=65;i<=90;i++){
+			list.push(String.fromCharCode(i));
+		}
+
+		for (var i=97;i<=122;i++){
+			list.push(String.fromCharCode(i));
+		}
+		return list;
+	}
 
 	function createFlexItem() {
 		var item = {
@@ -26,6 +40,13 @@ function FlexBoxService() {
 	function flexPropertyValueList() {
 		var list = {
 			alignItems: [
+				'flex-start',
+				'flex-end',
+				'center',
+				'baseline',
+				'stretch'
+			],
+			alignContent: [
 				'flex-start',
 				'flex-end',
 				'center',
@@ -47,11 +68,18 @@ function FlexBoxService() {
 		return list;
 	}
 
+	function getFlexItemLabel(item, index) {
+		var label = index < 53 ? labelList[index] : index.toString();
+		return label;
+	}
+
 	function getFlexItemList(requestedCount) {
 		var itemList = [];
 
-		for(var c=1; c <= requestedCount; c++){
-			itemList.push(createFlexItem());
+		for( var c=1; c <= requestedCount; c++){
+			var item = createFlexItem();
+				item.label = getFlexItemLabel(item, c-1);
+			itemList.push(item);
 		}
 
 		return itemList;
@@ -60,4 +88,5 @@ function FlexBoxService() {
 	function setFlexParameter(target, parameterName, parameterValue) {
 		target[parameterName] = parameterValue;
 	}
+
 }

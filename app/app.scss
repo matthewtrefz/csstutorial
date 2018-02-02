@@ -9,10 +9,13 @@
 .container {
 	box-sizing: border-box;
 	border: 1px solid $grey-light;
-	padding: 0.5rem;
+	height: 50%;
 	margin: 0 auto;
-	height: 80%;
-	width: 80%;
+	max-height: 50vh;
+	max-width: 50vh;
+	padding: 0.5rem;
+	overflow: hidden;
+	width: 50%;
 }
 
 .content-area {
